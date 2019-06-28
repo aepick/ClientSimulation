@@ -10,14 +10,14 @@ print(host , port)
 while True:
     s.listen(1)
     conn, addr = s.accept()
-    #print('Connected by', addr)
+    print('Connected by', addr)
     try:
         data = conn.recv(1024)
         if not data:
             print('Not Data' + data.decode())
             #print(data) 
             break
-        #print ("Client Says: "+data.decode())
+        print ("Client Says: "+data.decode())
         conn.sendall(b"FLAG")
         if(data.decode() == 'Exit'):
             break
