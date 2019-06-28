@@ -19,16 +19,17 @@ while counter < 100:
         connected = True
     except socket.error as error:
         counter += 1
-        print('error occurred trying again: '+ str(counter))
+        #print('error occurred trying again: '+ str(counter))
         connected = False
         s.close()
     if(connected == True):
+        counter = 0
         try:
             data=(json.dumps(sensitiveData))
             #print(data)
             s.sendall(data.encode('utf-8'))
             data = s.recv(1024)
-            print('Received', repr(data))
+            #print('Received', repr(data))
             connected = False
             time.sleep(2)
         except(KeyboardInterrupt):
