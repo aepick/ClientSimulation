@@ -29,7 +29,7 @@ while counter < 100:
             #print(data)
             s.sendall(data.encode('utf-8'))
             data = s.recv(1024)
-            #print('Received', repr(data))
+            print('Received', repr(data))
             connected = False
             time.sleep(2)
         except(KeyboardInterrupt):
